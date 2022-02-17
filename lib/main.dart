@@ -36,6 +36,10 @@ class MyHomePage extends StatelessWidget {
       date: DateTime.now(),
     ),
   ];
+  // String titleInput;
+  // String valueInput;
+  final titleController = TextEditingController();
+  final valueController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +49,37 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-        Container(
-          width: double.infinity,
-          child: const Card(
-            color: Colors.blue,
-            child: Text('Chart!'),
-            elevation: 10,
+        Card(
+          elevation: 5,
+          child: Container(
+            margin: EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: "Title",
+                  ),
+                  // onChanged: (input) => titleInput = input,
+                  controller: titleController,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: "Value",
+                  ),
+                  // onChanged: (input) => valueInput = input,
+                  controller: valueController,
+                ),
+                FlatButton(
+                  child: Text("Add transaction"),
+                  textColor: Colors.green,
+                  onPressed: () {
+                    print(valueController.text);
+                    print(titleController.text);
+                  },
+                )
+              ],
+            ),
           ),
         ),
         Column(
@@ -64,6 +93,7 @@ class MyHomePage extends StatelessWidget {
                       horizontal: 15,
                     ),
                     decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(
                       color: Colors.green,
                       width: 2,
