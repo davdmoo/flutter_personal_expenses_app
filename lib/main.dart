@@ -10,7 +10,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'Wallet',
+      theme: ThemeData(
+        primarySwatch: Colors.lightGreen,
+        fontFamily: 'Lato',
+        textTheme: ThemeData.light().textTheme.copyWith(
+          headline6: TextStyle(
+            fontFamily: 'Lato',
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: "Lato",
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       home: MyHomePage(),
     );
   }
@@ -23,24 +41,24 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: "1",
-      title: "New Book",
-      value: 14.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "2",
-      title: "New Notebook",
-      value: 14.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "3",
-      title: "New Phone",
-      value: 24.99,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: "1",
+    //   title: "New Book",
+    //   value: 14.99,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "2",
+    //   title: "New Notebook",
+    //   value: 14.99,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "3",
+    //   title: "New Phone",
+    //   value: 24.99,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   void _addNewTransaction(String txTitle, double txValue) {
@@ -69,7 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter App'),
+        title: Text('Wallet',
+        style: Theme.of(context).appBarTheme.titleTextStyle,
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
