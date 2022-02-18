@@ -24,10 +24,12 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter App'),
       ),
-      body: Column(
-        children: <Widget>[
-          UserTransactions(),
-      ]),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            UserTransactions(),
+        ]),
+      ),
     );
   }
 }
