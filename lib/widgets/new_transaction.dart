@@ -1,9 +1,7 @@
-import "dart:io";
-
 import "package:flutter/material.dart";
-import "package:flutter/cupertino.dart";
-import './adaptive_button.dart';
 import "package:intl/intl.dart";
+
+import './adaptive_button.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function addNewTransaction;
